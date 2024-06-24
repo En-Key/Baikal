@@ -14,118 +14,7 @@ import { MdForest } from 'react-icons/md';
 import { TbBuildingPavilion, TbRouteSquare } from 'react-icons/tb';
 
 export const Footer = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggle = () => setIsOpen(!isOpen);
-
-  useEffect(() => {
-    const handler = () => {
-      setIsOpen(false);
-    };
-    document.addEventListener('mousedown', handler);
-
-    return () => {
-      document.removeEventListener('mousedown', handler);
-    };
-  });
-
-  const menuItem: any[] = [
-    {
-      path: ROUTES.ROOT,
-      name: 'Главная',
-      icon: <IoHome />,
-    },
-    {
-      path: ROUTES.NATURE,
-      name: 'Природа',
-      icon: <TbBuildingPavilion />,
-    },
-    {
-      path: ROUTES.CLIMATE,
-      name: 'Климат',
-      icon: <FaRegSnowflake />,
-    },
-    {
-      path: ROUTES.SEASONS,
-      name: 'Сезоны',
-      icon: <FaCanadianMapleLeaf />,
-    },
-    {
-      path: ROUTES.ROUTES,
-      name: 'Маршруты',
-      icon: <TbRouteSquare />,
-    },
-    {
-      path: ROUTES.MAP,
-      name: 'Карта',
-      icon: <TbRouteSquare />,
-    },
-    {
-      path: ROUTES.SIGHTS,
-      name: 'Места',
-      icon: <TbBuildingPavilion />,
-    },
-    {
-      path: ROUTES.GALLERY,
-      name: 'Галерея',
-      icon: <GrGallery />,
-    },
-    {
-      path: ROUTES.FAQ,
-      name: 'Вопросы',
-      icon: <FaQuestion />,
-    },
-    {
-      path: ROUTES.DONATE,
-      name: 'Поддержать',
-      icon: <BiSolidDonateHeart />,
-    },
-    {
-      path: ROUTES.FRESH,
-      name: 'Свежее',
-      icon: <MdForest />,
-    },
-    {
-      path: `${ROUTES.ARTICLE}/:id`,
-      name: 'Статьи',
-      icon: <FaMountain />,
-    },
-    {
-      path: ROUTES.AUTH,
-      name: 'Аутентификация',
-      icon: <FaMountain />,
-    },
-    {
-      path: ROUTES.TIMER,
-      name: 'Таймер',
-      icon: <FaMountain />,
-    },
-    {
-      path: ROUTES.RESIZE,
-      name: 'Изменение размера',
-      icon: <FaMountain />,
-    },
-    {
-      path: ROUTES.CREATE_ARTICLE,
-      name: 'Создать статью',
-      icon: <FaMountain />,
-    },
-    {
-      path: ROUTES.MEMO_EXAMPLE,
-      name: 'Пример мемо',
-      icon: <FaMountain />,
-    },
-    {
-      path: ROUTES.KEY_PROP,
-      name: 'Кей проп',
-      icon: <FaMountain />,
-    },
-    {
-      path: ROUTES.REF_EXAMPLE,
-      name: 'Пример Реф',
-      icon: <FaMountain />,
-    },
-  ];
+ 
 
   return (
     <div className={s.footer}>
@@ -136,13 +25,8 @@ export const Footer = () => {
       </div>
       <div className={s.footer_bottom}>
         <div className={s.footer_container}>
-          <div className={s.footer_top_row}>
-          {menuItem.map((item, index) => (
-            <NavLink to={item.path} key={index} className={s.footer_top_link}>
-              <div className="link_text">{item.name}</div>
-            </NavLink>
-          ))}
-          </div>
+          
+          
         </div>
       </div>
     </div>

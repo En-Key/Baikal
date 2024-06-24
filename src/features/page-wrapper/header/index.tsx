@@ -62,7 +62,7 @@ export const Header = ({ onSearchChange }: { onSearchChange?: (e: ChangeEvent<HT
           <img className={s.logo_img} src={logo} alt="logo" />
           <span className={s.logo_span}>Baikal Travel</span>
         </Link>
-        <DarkModeButton />
+        {/* <DarkModeButton /> */}
       </div>
       <div className={s.centerSection}>
         {isOpenSearchBar && (

@@ -13,20 +13,13 @@ import { BiSolidDonateHeart } from 'react-icons/bi';
 import { MdInsights, MdForest, MdLogin } from 'react-icons/md';
 import { GiWaterPolo } from 'react-icons/gi';
 import { GrGallery, GrScheduleNew } from 'react-icons/gr';
-import { PiArticleNyTimesDuotone } from "react-icons/pi";
-import { RiArticleLine, RiImageAddLine } from "react-icons/ri";
-import { VscNewFile } from "react-icons/vsc";
-
-
-
-
-
-
+import { PiArticleNyTimesDuotone } from 'react-icons/pi';
+import { RiArticleLine, RiImageAddLine } from 'react-icons/ri';
+import { VscNewFile } from 'react-icons/vsc';
 
 // import { FaBars, FaTh, FaUserAlt, FaRegChartBar, FaCommentAlt, Fa ShoppingBag, FaThList} from 'react-icons';
 
 export const Sidebar = () => {
-
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
 
@@ -53,36 +46,36 @@ export const Sidebar = () => {
       name: 'Главная',
       icon: <IoHome />,
     },
-    // {
-    //   path: ROUTES.MAP,
-    //   name: 'Карта',
-    //   icon: <TbMapSearch />,
-    // },
+    {
+      path: ROUTES.MAP,
+      name: 'Карта',
+      icon: <TbMapSearch />,
+    },
     // {
     //   path: ROUTES.SIGHTS,
     //   name: 'Места',
     //   icon: <FaTreeCity />,
     // },
-    // {
-    //   path: ROUTES.GALLERY,
-    //   name: 'Галерея',
-    //   icon: <GrGallery />,
-    // },
+    {
+      path: ROUTES.GALLERY,
+      name: 'Галерея',
+      icon: <GrGallery />,
+    },
     {
       path: ROUTES.POPULAR,
-      name: 'Популярное',
+      name: 'Статьи',
       icon: <GrScheduleNew />,
     },
-    {
-      path: ROUTES.FRESH,
-      name: 'Свежее',
-      icon: <RiImageAddLine />,
-    },
-    {
-      path: `${ROUTES.ARTICLE}/:id`,
-      name: 'Статьи',
-      icon: <RiArticleLine />,
-    },
+    // {
+    //   path: ROUTES.FRESH,
+    //   name: 'Статьи',
+    //   icon: <RiArticleLine />,
+    // },
+    // {
+    //   path: `${ROUTES.ARTICLE}/:id`,
+    //   name: 'Статьи',
+    //   icon: <RiArticleLine />,
+    // },
     {
       path: ROUTES.CREATE_ARTICLE,
       name: 'Создать',
@@ -98,22 +91,23 @@ export const Sidebar = () => {
       name: 'Вопросы',
       icon: <FaQuestion />,
     },
-    {
-      path: ROUTES.NATURE,
-      name: 'Природа',
-      icon: <MdForest />,
-    },
-    {
-      path: ROUTES.CLIMATE,
-      name: 'Климат',
-      icon: <FaRegSnowflake />,
-    },
+  
+    // {
+    //   path: ROUTES.NATURE,
+    //   name: 'Природа',
+    //   icon: <MdForest />,
+    // },
+    // {
+    //   path: ROUTES.CLIMATE,
+    //   name: 'Климат',
+    //   icon: <FaRegSnowflake />,
+    // },
     // {
     //   path: ROUTES.SEASONS,
     //   name: 'Сезоны',
     //   icon: <FaCanadianMapleLeaf />,
     // },
-    
+
     {
       path: ROUTES.ROUTES,
       name: 'Маршруты',
@@ -124,17 +118,16 @@ export const Sidebar = () => {
       name: 'Поддержать',
       icon: <BiSolidDonateHeart />,
     },
-    {
-      path: ROUTES.AUTH,
-      name: 'Войти',
-      icon: <MdLogin />,
-    },
+    // {
+    //   path: ROUTES.AUTH,
+    //   name: 'Войти',
+    //   icon: <MdLogin />,
+    // },
     // {
     //   path: ROUTES.TIMER,
     //   name: 'Таймер',
     //   icon: <FaMountain />,
     // },
-    
   ];
 
   return (

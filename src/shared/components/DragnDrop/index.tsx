@@ -64,7 +64,7 @@ export const DragnDrop = () => {
 
   return (
     <div className={s.wrapper}>
-      <h1>Drag & Drop</h1>
+      <h1>Загрузить фото</h1>
       <form
           className={clsx(s.form, {[s.drag]: dragActive})}
           // className={clsx(s.inputField, { [s.textareaField]: props.type === 'textarea', [s.error]: error && touched })}
