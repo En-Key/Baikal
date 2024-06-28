@@ -1,6 +1,9 @@
-.baseContainer {
+.base {
     position: relative;
-    background-color: var(--background-color);
+    background-color: var(--background-color-thirdary);
+    /* width: 1140px; */
+    /* width: auto; */
+    
     height: 100%;
     display: grid;
     grid-template-rows: min-content auto;

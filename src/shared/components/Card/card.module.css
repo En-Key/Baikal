@@ -41,7 +41,7 @@
   
   
   
-  @media only screen and (max-width: 1045px) {
+  @media only screen and (max-width: 1400px) {
     .all_cards {
       grid-template-columns: repeat(2, 1fr);
     }

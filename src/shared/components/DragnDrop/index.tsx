@@ -5,18 +5,16 @@ import axios from 'axios';
 import clsx from 'clsx';
 
 export const DragnDrop = () => {
-
-  const hostUrl = "https://788413a1796040ee.mokky.dev/uploads";
+  const hostUrl = 'https://788413a1796040ee.mokky.dev/uploads';
 
   const [files, setFiles] = useState<any[]>([]);
   const [dragActive, setDragActive] = useState(false);
+  const [uploaded, setUploaded] = useState<any>(); // ответ от сервера
 
   const handleChange = (e: any) => {
     e.preventDefault();
     if (e.target.files && e.target.files[0]) {
-
       setFiles([...e.target.files]);
-
     }
   };
 
@@ -24,24 +22,34 @@ export const DragnDrop = () => {
     setFiles([]);
   };
 
-  const handleSubmit = (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
-    
+
     const data = new FormData();
-    files.forEach((file) => {
-      data.append("file", file);
+    files.forEach(file => {
+      data.append('file', file);
     });
 
-    //   const res = await fetch(hostUrl, {
-//     method: ‘POST’,
-//     body: formData,
-//   });
-    
-    fetch(hostUrl, { method: "POST", body: data })
-      .then((response) => response.json())
-      .then(() => setFiles([]))
-      .then((res) => console.log(res))
-      .catch(() => setFiles([]));
+    const res = await fetch(hostUrl, {
+      method: 'POST',
+      body: data,
+    });
+    const d = await res.json();
+
+    setUploaded(d);
+    console.log(d);
+
+    setFiles([]);
+
+    // fetch(hostUrl, { method: "POST", body: data })
+    //     .then((response) => response.json())
+    //     .then(() => setFiles([]))
+    //     .then((res) => console.log(res))
+    //     .catch(() => setFiles([]));
+
+    // const d = await res.json();
+
+    // setUploaded(d);
   };
 
   const handleDrag = (e: any) => {
@@ -49,12 +57,12 @@ export const DragnDrop = () => {
     setDragActive(true);
   };
 
-  const handleLive =  (e:any) => {
+  const handleLive = (e: any) => {
     e.preventDefault();
     setDragActive(false);
   };
 
-  const handleDrop =  (e: any) => {
+  const handleDrop = (e: any) => {
     e.preventDefault();
     setDragActive(false);
     if (e.dataTransfer.files && e.dataTransfer.files[0]) {
@@ -66,9 +74,9 @@ export const DragnDrop = () => {
     <div className={s.wrapper}>
       <h1>Загрузить фото</h1>
       <form
-          className={clsx(s.form, {[s.drag]: dragActive})}
-          // className={clsx(s.inputField, { [s.textareaField]: props.type === 'textarea', [s.error]: error && touched })}
-        
+        className={clsx(s.form, { [s.drag]: dragActive })}
+        // className={clsx(s.inputField, { [s.textareaField]: props.type === 'textarea', [s.error]: error && touched })}
+
         onReset={handleReset}
         onSubmit={handleSubmit}
         onDragEnter={handleDrag}
@@ -83,10 +91,21 @@ export const DragnDrop = () => {
           <input
             className={s.input}
             type="file"
-            multiple={true}
+            // multiple={true}
+            accept="image/*,.png,.jpg,.gif,.web,"
             onChange={handleChange}
           />
         </label>
+        {uploaded && (
+          <>
+          <div className={s.file_header}>Файл <span>{uploaded.fileName}</span> успешно загружен!</div>
+          <div className={s.file_container}> 
+            <img className={s.file_img} alt="" src={uploaded.url} width="200" />
+          </div>
+          </>
+          
+        )}
+        
         {files.length > 0 && (
           <>
             <ul className={s.file_list}>
@@ -116,25 +135,24 @@ export const DragnDrop = () => {
 //   </div>
 //   );
 //   }
-  
-  
+
 //   const hosrUrl = ‘/upload’;
-  
+
 //   export const UploadFile = () => {
-  
+
 //   const filePicker = useRef(null);
-  
+
 //   const [selectedFile, setSelectedFile] = useState(null);  // выбранный файл
-  
+
 //   const [uploaded, setUploaded] = useState(); // ответ от сервера
-  
+
 //   const handleChange = (e) => {
-  
+
 //   console.log(e.target.files);
-  
+
 //   setSelectedFile(e.target.files[0]) // сохранили в стэйт только первый файл (можно все)
 //   }
-  
+
 //   const handleUpload = async () => {
 //   if (!selectedFile) {
 //   alert(“Please select a file”)
@@ -142,27 +160,25 @@ export const DragnDrop = () => {
 //   }
 //   const formData = new FormData();
 //   formData.append(‘file’, selectedFile); // можно отправить любые данные, а не только файл по ключу (например file), который от нас ожидает сервер
-  
+
 //   const res = await fetch(hostUrl, {
 //     method: ‘POST’,
 //     body: formData,
 //   });
 //   const data = await res.json();
-  
+
 //   setUploaded(data);
-  
+
 //   }
-  
+
 //   const handlePick = () => {
 //     filePicker.current.click();
 //   } // воспроизводим клик на скрытый инпут, кликнув на кнопку
-  
-  
-  
+
 //   return (
 //   <>
 //   <button onClick={handlePick}>Pick file</button>
-  
+
 //   <input
 //   className={s.hidden}
 //   type = “file”
@@ -171,9 +187,9 @@ export const DragnDrop = () => {
 //   multiple // несколько файлов
 //   // accept= “image/*,.png,.jpg,.gif,.web,”
 //   />
-  
+
 //   <button onClick={handleUpload}>Upload now!</button>
-  
+
 //   {selectedFile && (
 //   <ul>
 //   <li>Name: {selectedFile.name}</li>
@@ -185,7 +201,7 @@ export const DragnDrop = () => {
 //   </li>
 //   </ul>
 //   )}
-  
+
 //   {uploaded && (
 //   <div>
 //   <h2>{uploaded.filePath}</h2>
@@ -195,14 +211,6 @@ export const DragnDrop = () => {
 //   </>
 //   );
 //   };
-  
-  
-  
-  
-  
-
-
-
 
 // export const Seasons = () => {
 //   const [drag, setDrag] = useState(false);
@@ -228,11 +236,8 @@ export const DragnDrop = () => {
 //     // formData.append('userId', '1');
 //     // axios.post('url', formData, options)
 
-    
 //     setDrag(false);
 //   };
-
-
 
 //   return (
 //     <div className="container">

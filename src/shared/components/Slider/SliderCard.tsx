@@ -1,5 +1,5 @@
 
-import s from './slider.module.css';
+// import s from './slider.module.css';
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import {Card, Button} from 'react-bootstrap';
@@ -19,7 +19,7 @@ export const SliderCard = (props: any) => {
                 <Card.Title className='display-6'>{price}</Card.Title>
                 <Card.Title >{title}</Card.Title>
             </Card.Body>
-            <Button className='w-100 rounded-0' variant='success'>Add To Cart</Button>
+            <Button className='w-100 rounded-0' variant='success'>Подробнее</Button>
         </Card>
     )
   };

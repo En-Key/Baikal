@@ -11,9 +11,9 @@ import { ROUTES } from 'router/routes';
 import ModalPopup from 'shared/components/ModalPopup';
 import { DarkModeButton } from 'shared/components/DarkModeButton';
 import { LoginButton } from './LoginButton';
+import { PiSignIn } from 'react-icons/pi';
 
 export const Header = ({ onSearchChange }: { onSearchChange?: (e: ChangeEvent<HTMLInputElement>) => void }) => {
-  
   const [modalOpen, setModalOpen] = useState(false);
   const [isOpenSearchBar, setIsOpenSearchBar] = useState(false);
   const [params, setParams] = useSearchParams();
@@ -62,9 +62,12 @@ export const Header = ({ onSearchChange }: { onSearchChange?: (e: ChangeEvent<HT
           <img className={s.logo_img} src={logo} alt="logo" />
           <span className={s.logo_span}>Baikal Travel</span>
         </Link>
-        {/* <DarkModeButton /> */}
+        <DarkModeButton />
       </div>
       <div className={s.centerSection}>
+        <Link to={ROUTES.ROOT} className={s.centerSection_title}>
+          <span className={s.logo_span}>BAIKAL TRAVEL</span>
+        </Link>
         {isOpenSearchBar && (
           <input type="text" placeholder="Поиск..." className={s.searchInput} onChange={onSearchChange} />
         )}
@@ -72,9 +75,7 @@ export const Header = ({ onSearchChange }: { onSearchChange?: (e: ChangeEvent<HT
       </div>
       <div className={s.rightSection}>
         <ul className={s.header_nav_list}>
-          <div className={s.searchSign}>
-            <IoSearchOutline onClick={() => toggleOpenSearchBar()} />
-          </div>
+          <div className={s.searchSign}>{/* <IoSearchOutline onClick={() => toggleOpenSearchBar()} /> */}</div>
           <Link to={ROUTES.MAP} className={s.header_nav_item}>
             КАРТА
           </Link>
@@ -85,14 +86,14 @@ export const Header = ({ onSearchChange }: { onSearchChange?: (e: ChangeEvent<HT
             ГАЛЕРЕЯ
           </Link>
         </ul>
-
-        <div onClick={onChangeParams}>
+        <div className={s.login_button} onClick={onChangeParams}>
           <LoginButton />
+        </div>
+        <div className={s.login_sign} onClick={onChangeParams}>
+          <PiSignIn />
         </div>
 
         <ModalPopup isOpen={modalOpen} onClose={() => setModalOpen(false)} />
-
-        <div className={s.menu_container}></div>
       </div>
     </header>
   );

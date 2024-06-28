@@ -6,7 +6,6 @@
     width: 100%;
     min-height: 100vh;
     padding: 16px;
-    /* background: radial-gradient(#a4d6f2, #0998d3); */
   }
   
   h1 {
@@ -119,6 +118,19 @@
     padding: 0;
     margin: 0;
     
+    }
+
+    .file_header {
+      margin-top: 10px;
+    }
+    .file_container {
+      /* margin-top: 10px; */
+      margin: 20px auto;
+      /* max-width: 300px; */
+    }
+
+    .file_img {
+      margin: 0 auto;
     }
 
 

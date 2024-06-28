@@ -2,22 +2,19 @@ import classes from 'classnames';
 import { NavLink } from 'react-router-dom';
 import { ROUTES } from '../../../router/routes';
 import s from './sidebar.module.css';
-import { Children, ReactNode, useEffect, useRef, useState } from 'react';
-import { PopularPage } from 'pages/PopularPage';
+import { useEffect, useState } from 'react';
 import { FaBars, FaTimes, FaCanadianMapleLeaf, FaRegSnowflake } from 'react-icons/fa';
 import { TbRouteSquare, TbBuildingPavilion, TbMapSearch } from 'react-icons/tb';
 import { IoHome } from 'react-icons/io5';
 import { FaQuestion, FaMountain, FaTreeCity } from 'react-icons/fa6';
-import { SiCodeclimate } from 'react-icons/si';
-import { BiSolidDonateHeart } from 'react-icons/bi';
-import { MdInsights, MdForest, MdLogin } from 'react-icons/md';
-import { GiWaterPolo } from 'react-icons/gi';
 import { GrGallery, GrScheduleNew } from 'react-icons/gr';
-import { PiArticleNyTimesDuotone } from 'react-icons/pi';
 import { RiArticleLine, RiImageAddLine } from 'react-icons/ri';
 import { VscNewFile } from 'react-icons/vsc';
-
-// import { FaBars, FaTh, FaUserAlt, FaRegChartBar, FaCommentAlt, Fa ShoppingBag, FaThList} from 'react-icons';
+// import { SiCodeclimate } from 'react-icons/si';
+// import { BiSolidDonateHeart } from 'react-icons/bi';
+// import { MdInsights, MdForest, MdLogin } from 'react-icons/md';
+// import { GiWaterPolo } from 'react-icons/gi';
+// import { PiArticleNyTimesDuotone } from 'react-icons/pi';
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,7 +29,7 @@ export const Sidebar = () => {
     return () => {
       document.removeEventListener('mousedown', handler);
     };
-  });
+  }, []);
 
   type MenuItemType = {
     path: string;
@@ -51,11 +48,11 @@ export const Sidebar = () => {
       name: 'Карта',
       icon: <TbMapSearch />,
     },
-    // {
-    //   path: ROUTES.SIGHTS,
-    //   name: 'Места',
-    //   icon: <FaTreeCity />,
-    // },
+    {
+      path: ROUTES.SIGHTS,
+      name: 'Места',
+      icon: <FaTreeCity />,
+    },
     {
       path: ROUTES.GALLERY,
       name: 'Галерея',
@@ -71,11 +68,7 @@ export const Sidebar = () => {
     //   name: 'Статьи',
     //   icon: <RiArticleLine />,
     // },
-    // {
-    //   path: `${ROUTES.ARTICLE}/:id`,
-    //   name: 'Статьи',
-    //   icon: <RiArticleLine />,
-    // },
+
     {
       path: ROUTES.CREATE_ARTICLE,
       name: 'Создать',
@@ -91,42 +84,40 @@ export const Sidebar = () => {
       name: 'Вопросы',
       icon: <FaQuestion />,
     },
-  
-    // {
-    //   path: ROUTES.NATURE,
-    //   name: 'Природа',
-    //   icon: <MdForest />,
-    // },
     // {
     //   path: ROUTES.CLIMATE,
     //   name: 'Климат',
     //   icon: <FaRegSnowflake />,
     // },
     // {
+    //   path: ROUTES.ROUTES,
+    //   name: 'Маршруты',
+    //   icon: <TbRouteSquare />,
+    // },
+    // {
+    //   path: `${ROUTES.ARTICLE}/:id`,
+    //   name: 'Статьи',
+    //   icon: <RiArticleLine />,
+    // },
+    // {
+    //   path: ROUTES.DONATE,
+    //   name: 'Поддержать',
+    //   icon: <BiSolidDonateHeart />,
+    // },
+    // {
     //   path: ROUTES.SEASONS,
     //   name: 'Сезоны',
     //   icon: <FaCanadianMapleLeaf />,
     // },
-
-    {
-      path: ROUTES.ROUTES,
-      name: 'Маршруты',
-      icon: <TbRouteSquare />,
-    },
-    {
-      path: ROUTES.DONATE,
-      name: 'Поддержать',
-      icon: <BiSolidDonateHeart />,
-    },
+    // {
+    //   path: ROUTES.NATURE,
+    //   name: 'Природа',
+    //   icon: <MdForest />,
+    // },
     // {
     //   path: ROUTES.AUTH,
     //   name: 'Войти',
     //   icon: <MdLogin />,
-    // },
-    // {
-    //   path: ROUTES.TIMER,
-    //   name: 'Таймер',
-    //   icon: <FaMountain />,
     // },
   ];
 
@@ -140,7 +131,7 @@ export const Sidebar = () => {
             </button>
           </div>
         </div>
-        <div style={{ height: isOpen ? '645px' : '0' }} className={s.bottom_section}>
+        <div style={{ height: isOpen ? '690px' : '0' }} className={s.bottom_section}>
           {menuItem.map((item, index) => (
             <NavLink to={item.path} key={index} className={({ isActive }) => classes(s.link, { [s.active]: isActive })}>
               <div className="icon">{item.icon}</div>

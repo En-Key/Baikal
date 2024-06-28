@@ -9,22 +9,17 @@ import { Footer } from './footer';
 import ModalPopup from 'shared/components/ModalPopup';
 
 export const PageWrapper = ({ children }: { children: ReactNode }) => {
-
   return (
     <>
-    {/* <div>Модалка</div> */}
-    <BaseContainer>
-    
-      <Header />
-      
-      <ContentWrapper>
-        
-        <Sidebar />
-        
-        <MainContent>{children}</MainContent>
-      </ContentWrapper>
-      <Footer />
-    </BaseContainer>
+      {/* <div>Модалка</div> */}
+      <BaseContainer>
+        <Header />
+        <ContentWrapper>
+          <Sidebar />
+          <MainContent>{children}</MainContent>
+        </ContentWrapper>
+        <Footer />
+      </BaseContainer>
     </>
   );
 };

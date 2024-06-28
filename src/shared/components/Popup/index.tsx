@@ -5,9 +5,6 @@ import s from './popup.module.css';
 import SignIn from 'shared/components/SighIn';
 import SignUp from '../SignUp';
 
-
-// import { Transition } from "react-transition-group";
-
 const Popup = () => {
 
     const [toggle, setToggle] = useState(false);

@@ -11,7 +11,6 @@ import { useClickOutside } from 'hooks/useClickOutside';
 
 export const AccordeonItem = ({ faqItem, onClick, isOpen }: any) => {
   const itemRef = useRef<null | any>(null);
-
   const menuRef = useRef(null);
 
   useClickOutside(menuRef, () => {

@@ -1,32 +1,26 @@
 import avatar from 'assets/images/avatar.jpg';
-import classes from 'classnames';
-import { ChangeEvent, useEffect, useState } from 'react';
 import s from './footer.module.css'; // Путь к вашему файлу стилей
-import { FaBars, FaCanadianMapleLeaf, FaMountain, FaQuestion, FaRegSnowflake } from 'react-icons/fa';
-// import { DropdownItem } from 'shared/components/DropdownItem';
-import { RiAccountCircleLine, RiAccountCircleFill } from 'react-icons/ri';
-import { IoHome, IoMoonOutline, IoMoonSharp } from 'react-icons/io5';
 import { Link, NavLink } from 'react-router-dom';
 import { ROUTES } from 'router/routes';
-import { BiSolidDonateHeart } from 'react-icons/bi';
-import { GrGallery } from 'react-icons/gr';
-import { MdForest } from 'react-icons/md';
-import { TbBuildingPavilion, TbRouteSquare } from 'react-icons/tb';
 
 export const Footer = () => {
- 
-
   return (
     <div className={s.footer}>
       <div className={s.footer_top}>
         <div className={s.footer_container}>
-          <h1>Остались вопросы?</h1>
-        </div>
-      </div>
-      <div className={s.footer_bottom}>
-        <div className={s.footer_container}>
-          
-          
+          {/* <h1>Остались вопросы?</h1> */}
+          <Link to={ROUTES.ROOT} className={s.footer_top_link}>
+            Baikal Travel
+          </Link>
+          <Link to={ROUTES.MAP} className={s.footer_top_link}>
+            Карта
+          </Link>
+          <Link to={ROUTES.SIGHTS} className={s.footer_top_link}>
+            Места
+          </Link>
+          <Link to={ROUTES.GALLERY} className={s.footer_top_link}>
+            Галерея
+          </Link>
         </div>
       </div>
     </div>

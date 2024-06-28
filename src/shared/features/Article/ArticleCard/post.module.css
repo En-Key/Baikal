@@ -2,16 +2,18 @@
   border-radius: 8px;
   margin: 10px;
   padding: 20px;
-  background-color: #fff;
+  background-color: var(--background-color-section);
   transition: box-shadow 0.3s ease;
+  color: var(--text-color);
 
   &:hover {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); */
+    box-shadow: 0 2px 5px var(--text-header-color);
     
   }
 
   & a {
-    color: #000;
+    color: var(--text-header-color);
     text-decoration: none;
   }
 }
@@ -27,14 +29,15 @@
     /* font-optical-sizing: auto; */
     font-weight: 600;
     font-style: normal;
-    color: #353938;
+    color: var(--text-color);
+    /* color: #353938; */
     transition: all 0.3s;
     text-align: left;
     margin-left: 20px;
   }
 
   .title:hover {
-    color: #000000;
+    color: var(--text-header-color);
     
   }
 

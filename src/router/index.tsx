@@ -1,33 +1,21 @@
-
-import { AuthPage } from '../pages/Auth';
-import { CreateArticlePage } from '../pages/CreateArticlePage';
-
-import { KeyPropPage } from '../pages/KeyPropExample';
-import { MemoExamplePage } from '../pages/MemoExample';
-
-import { RefExamplePage } from '../pages/RefExamplePage';
-import { ResizeExamplePage } from '../pages/ResizeExample';
-import { TimerPage } from '../pages/TimerPage';
-
 import { createBrowserRouter } from 'react-router-dom';
 import { Root } from '../features/core/Root';
-import { ArticlePage } from '../pages/ArticlePage';
-import { FreshPage } from '../pages/FreshPage';
-import { PopularPage } from '../pages/PopularPage';
-
-import { Nature } from 'pages/Nature';
-import { Maps} from 'pages/Map';
-import { Climate } from 'pages/Climate';
-import { Sights } from 'pages/Sights';
-import { Seasons } from 'pages/Seasons';
-import { Comment } from 'pages/Comment';
-import { Faq } from 'pages/Faq';
-import { Gallery } from 'pages/Gallery';
-import { Main } from 'pages/Main';
+import { AuthPage } from '../pages/auth/Auth';
+import { CreateArticlePage } from '../pages/create/CreateArticlePage';
+import { ArticlePage } from '../pages/article/ArticlePage';
+import { FreshPage } from '../pages/fresh/FreshPage';
+import { PopularPage } from '../pages/popular/PopularPage';
+import { Maps } from 'pages/map/Map';
+import { Sights } from 'pages/sights/Sights';
+import { Seasons } from 'pages/seasons/Seasons';
+import { Faq } from 'pages/faq/Faq';
+import { Gallery } from 'pages/gallery/Gallery';
+import { Main } from 'pages/main/Main';
 import { ROUTES } from './routes';
-import { Routes } from 'pages/Routes';
-import { Donate } from 'pages/Donate';
-
+import { Routes } from 'pages/rotes/Routes';
+import { Donate } from 'pages/donate/Donate';
+// import { Climate } from 'pages/climate/Climate';
+// import { Nature } from 'pages/nature/Nature';
 
 export const router = createBrowserRouter([
   {
@@ -38,12 +26,6 @@ export const router = createBrowserRouter([
         index: true,
         element: <Main />,
       },
-      {
-        path: ROUTES.NATURE,
-        index: true,
-        element: <Nature />,
-      },
-      
       {
         path: ROUTES.SIGHTS,
         index: true,
@@ -64,11 +46,7 @@ export const router = createBrowserRouter([
         index: true,
         element: <Maps />,
       },
-      {
-        path: ROUTES.CLIMATE,
-        index: true,
-        element: <Climate />,
-      },
+
       {
         path: ROUTES.FAQ,
         index: true,
@@ -97,45 +75,23 @@ export const router = createBrowserRouter([
         element: <ArticlePage />,
       },
       {
-        path: ROUTES.ROUTES,
-        index: true,
-        element: <Comment />,
-      },
-      {
         path: ROUTES.AUTH,
         element: <AuthPage />,
-      },
-      {
-        path: ROUTES.TIMER,
-        element: <TimerPage />,
-      },
-      {
-        path: ROUTES.RESIZE,
-        element: <ResizeExamplePage />,
       },
       {
         path: ROUTES.CREATE_ARTICLE,
         element: <CreateArticlePage />,
       },
-      {
-        path: ROUTES.MEMO_EXAMPLE,
-        element: <MemoExamplePage />,
-      },
-      {
-        path: ROUTES.KEY_PROP,
-        element: <KeyPropPage />,
-      },
-      {
-        path: ROUTES.REF_EXAMPLE,
-        element: <RefExamplePage />,
-      },
+      // {
+      //   path: ROUTES.NATURE,
+      //   index: true,
+      //   element: <Nature />,
+      // },
+      // {
+      //   path: ROUTES.CLIMATE,
+      //   index: true,
+      //   element: <Climate />,
+      // },
     ],
   },
 ]);
-
-
-
-
-
-
-

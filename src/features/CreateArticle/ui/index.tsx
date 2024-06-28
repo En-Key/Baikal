@@ -29,6 +29,8 @@ export const CreateArticleForm = () => {
   const isLoading = useSelector(getCreateArticleIsLoading);
 
   return (
+    <>
+    <h1 className='container'>Создание статьи</h1>
     <div className={s.createPostFormContainer}>
       <Formik
         initialValues={сreateArticleFormValidationScheme.getDefault()}
@@ -77,5 +79,6 @@ export const CreateArticleForm = () => {
         </Form>
       </Formik>
     </div>
+    </>
   );
 };

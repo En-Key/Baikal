@@ -28,7 +28,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 20px;
-  background-color: #fff;
+  background-color: var(--background-color-secondary);
   /* margin: 10px; */
   padding: 20px;
   border-radius: 8px;
@@ -115,7 +115,7 @@
 .content {
   margin-top: 0;
   margin-bottom: 1.5rem;
-  color: #0a0a0a;
+  /* color: #0a0a0a; */
   text-align: left;
   padding-top: 0;
 }
